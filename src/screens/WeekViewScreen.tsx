@@ -7,7 +7,7 @@ interface WeekViewScreenProps {
   onAdd: () => void;
 }
 
-export default function WeekViewScreen({ onBack }: WeekViewScreenProps) {
+export default function WeekViewScreen({ onBack, onAdd }: WeekViewScreenProps) {
   const { getWeekEntries } = useSleep();
   const week = getWeekEntries();
 
