@@ -59,18 +59,26 @@ export default function TodaySummaryScreen({ onEdit, onWeek }: TodaySummaryScree
         </div>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3">
+        <div className="flex gap-3">
+          <button
+            onClick={onEdit}
+            className="flex-1 py-3 rounded-pill border-2 border-primary text-accent-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
+          >
+            Edit Entry
+          </button>
+          <button
+            onClick={onWeek}
+            className="flex-1 py-3 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
+          >
+            This Week
+          </button>
+        </div>
         <button
           onClick={onEdit}
-          className="flex-1 py-3 rounded-pill border-2 border-primary text-accent-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
+          className="w-full py-3 rounded-pill border-2 border-border text-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
         >
-          Edit Entry
-        </button>
-        <button
-          onClick={onWeek}
-          className="flex-1 py-3 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
-        >
-          This Week
+          + Add Another Entry
         </button>
       </div>
     </div>
