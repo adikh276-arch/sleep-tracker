@@ -4,9 +4,10 @@ const dayLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 interface WeekViewScreenProps {
   onBack: () => void;
+  onAdd: () => void;
 }
 
-export default function WeekViewScreen({ onBack }: WeekViewScreenProps) {
+export default function WeekViewScreen({ onBack, onAdd }: WeekViewScreenProps) {
   const { getWeekEntries } = useSleep();
   const week = getWeekEntries();
 
@@ -60,12 +61,20 @@ export default function WeekViewScreen({ onBack }: WeekViewScreenProps) {
         <p className="text-3xl font-heading mt-1">{avg}h</p>
       </div>
 
-      <button
-        onClick={onBack}
-        className="w-full py-4 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
-      >
-        Back to Today
-      </button>
+      <div className="flex flex-col gap-3">
+        <button
+          onClick={onAdd}
+          className="w-full py-4 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
+        >
+          + Add Another Entry
+        </button>
+        <button
+          onClick={onBack}
+          className="w-full py-4 rounded-pill border-2 border-border text-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
+        >
+          Back to Home
+        </button>
+      </div>
     </div>
   );
 }

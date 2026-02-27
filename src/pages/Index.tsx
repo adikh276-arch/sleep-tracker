@@ -35,7 +35,7 @@ function SleepApp() {
       {visible === "summary" && (
         <TodaySummaryScreen onEdit={() => navigateTo("log")} onWeek={() => navigateTo("week")} />
       )}
-      {visible === "week" && <WeekViewScreen onBack={() => navigateTo("summary")} />}
+      {visible === "week" && <WeekViewScreen onBack={() => navigateTo("summary")} onAdd={() => navigateTo("log")} />}
 
       {/* Bottom nav dots */}
       <div className="fixed bottom-6 left-0 right-0 flex justify-center gap-2">
