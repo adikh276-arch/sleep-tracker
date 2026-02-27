@@ -4,6 +4,7 @@ const dayLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 interface WeekViewScreenProps {
   onBack: () => void;
+  onAdd: () => void;
 }
 
 export default function WeekViewScreen({ onBack }: WeekViewScreenProps) {
