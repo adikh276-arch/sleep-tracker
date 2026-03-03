@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode, useEffect } from "react";
+import { useState, createContext, useContext, ReactNode, useEffect, useCallback } from "react";
 import { useAuth } from "./AuthContext";
 import sql from "@/lib/db";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -23,6 +23,7 @@ interface SleepContextType {
   getTodayEntry: () => SleepEntry | undefined;
   getWeekEntries: () => (SleepEntry | undefined)[];
   isLoading: boolean;
+  refetch: () => void;
 }
 
 const SleepContext = createContext<SleepContextType | null>(null);
@@ -50,8 +51,8 @@ const getDayLabel = (offset: number) => {
 };
 
 export function calculateSleepHours(entry: SleepEntry): number {
-  let bedH = entry.bedtimeHour % 12 + (entry.bedtimeAmPm === "PM" ? 12 : 0);
-  let wakeH = entry.wakeHour % 12 + (entry.wakeAmPm === "PM" ? 12 : 0);
+  let bedH = (entry.bedtimeHour % 12) + (entry.bedtimeAmPm === "PM" ? 12 : 0);
+  let wakeH = (entry.wakeHour % 12) + (entry.wakeAmPm === "PM" ? 12 : 0);
   const bedMin = bedH * 60 + entry.bedtimeMinute;
   const wakeMin = wakeH * 60 + entry.wakeMinute;
   let diff = wakeMin - bedMin;
@@ -64,19 +65,21 @@ export function SleepProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient();
   const [currentEntry, setCurrentEntry] = useState<Partial<SleepEntry>>({});
 
+  // Ensure user exists in DB
   useEffect(() => {
     if (userId) {
-      console.log("AuthProvider userId:", userId);
+      console.log("[SleepContext] Syncing user profile for:", userId);
       sql`INSERT INTO users (id) VALUES (${userId}) ON CONFLICT (id) DO NOTHING`
-        .catch(err => console.error("Profile sync error:", err));
+        .catch(err => console.error("[SleepContext] Profile sync error:", err));
     }
   }, [userId]);
 
-  const { data: entries = [], isLoading, error: fetchError } = useQuery({
+  const { data: entries = [], isLoading, error: fetchError, refetch } = useQuery({
     queryKey: ["sleep_entries", userId],
     queryFn: async () => {
       if (!userId) return [];
-      console.log("Fetching entries for userId:", userId);
+      console.log("[SleepContext] Fetching entries for userId:", userId);
+
       const result = await sql`
         SELECT 
           bedtime_hour, bedtime_minute, bedtime_am_pm,
@@ -86,9 +89,10 @@ export function SleepProvider({ children }: { children: ReactNode }) {
         WHERE user_id = ${userId} 
         ORDER BY date DESC
       `;
-      console.log("Raw SQL result count:", result.length);
 
-      return result.map(row => ({
+      console.log(`[SleepContext] Retrieved ${result.length} entries from database`);
+
+      const mapped = result.map(row => ({
         bedtimeHour: row.bedtime_hour,
         bedtimeMinute: row.bedtime_minute,
         bedtimeAmPm: row.bedtime_am_pm as "AM" | "PM",
@@ -96,19 +100,25 @@ export function SleepProvider({ children }: { children: ReactNode }) {
         wakeMinute: row.wake_minute,
         wakeAmPm: row.wake_am_pm as "AM" | "PM",
         quality: row.quality,
-        date: row.date_str, // Use date::TEXT from Postgres to avoid JS Date object issues
+        date: row.date_str,
       }));
+
+      if (mapped.length > 0) {
+        console.log("[SleepContext] First mapped entry:", mapped[0]);
+      }
+      return mapped;
     },
     enabled: !!userId,
+    staleTime: 1000 * 30, // 30 seconds
   });
 
   if (fetchError) {
-    console.error("useQuery fetch error:", fetchError);
+    console.error("[SleepContext] useQuery fetch error:", fetchError);
   }
 
   const saveMutation = useMutation({
     mutationFn: async (entry: SleepEntry) => {
-      console.log("Saving entry:", entry);
+      console.log("[SleepContext] Mutating entry for date:", entry.date);
       return sql`
         INSERT INTO sleep_entries (
           user_id, bedtime_hour, bedtime_minute, bedtime_am_pm, 
@@ -127,15 +137,15 @@ export function SleepProvider({ children }: { children: ReactNode }) {
       `;
     },
     onSuccess: () => {
-      console.log("Save successful, invalidating queries...");
+      console.log("[SleepContext] Save successful, invalidating cache...");
       queryClient.invalidateQueries({ queryKey: ["sleep_entries", userId] });
     },
     onError: (err) => {
-      console.error("Save error:", err);
+      console.error("[SleepContext] Save mutation error:", err);
     }
   });
 
-  const saveEntry = () => {
+  const saveEntry = useCallback(() => {
     if (!userId) return;
     const entry: SleepEntry = {
       bedtimeHour: currentEntry.bedtimeHour ?? 10,
@@ -149,30 +159,41 @@ export function SleepProvider({ children }: { children: ReactNode }) {
     };
     saveMutation.mutate(entry);
     setCurrentEntry({});
-  };
+  }, [userId, currentEntry, saveMutation]);
 
-  const updateEntry = (entry: SleepEntry) => {
+  const updateEntry = useCallback((entry: SleepEntry) => {
     if (!userId) return;
     saveMutation.mutate(entry);
-  };
+  }, [userId, saveMutation]);
 
-  const getTodayEntry = () => {
+  const getTodayEntry = useCallback(() => {
     const today = getToday();
     const found = entries.find((e) => e.date === today);
-    console.log(`Searching for today (${today}):`, found ? "Found" : "Not Found");
+    console.log(`[SleepContext] getTodayEntry checking for ${today}:`, found ? "Found" : "Not Found");
     return found;
-  };
+  }, [entries]);
 
-  const getWeekEntries = () => {
+  const getWeekEntries = useCallback(() => {
     return Array.from({ length: 7 }, (_, i) => {
       const date = getDayLabel(6 - i);
-      return entries.find((e) => e.date === date);
+      const found = entries.find((e) => e.date === date);
+      return found;
     });
-  };
+  }, [entries]);
 
   return (
     <SleepContext.Provider
-      value={{ entries, currentEntry, setCurrentEntry, saveEntry, updateEntry, getTodayEntry, getWeekEntries, isLoading }}
+      value={{
+        entries,
+        currentEntry,
+        setCurrentEntry,
+        saveEntry,
+        updateEntry,
+        getTodayEntry,
+        getWeekEntries,
+        isLoading,
+        refetch
+      }}
     >
       {children}
     </SleepContext.Provider>
