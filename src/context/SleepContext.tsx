@@ -11,7 +11,7 @@ export interface SleepEntry {
   wakeMinute: number;
   wakeAmPm: "AM" | "PM";
   quality: number; // 0-4 index
-  date: string; // ISO date string
+  date: string; // YYYY-MM-DD
 }
 
 interface SleepContextType {
@@ -33,12 +33,20 @@ export const useSleep = () => {
   return ctx;
 };
 
-const getToday = () => new Date().toISOString().split("T")[0];
+// Robust local YYYY-MM-DD
+const getLocalDateString = (date: Date = new Date()) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+const getToday = () => getLocalDateString();
 
 const getDayLabel = (offset: number) => {
   const d = new Date();
   d.setDate(d.getDate() - offset);
-  return d.toISOString().split("T")[0];
+  return getLocalDateString(d);
 };
 
 export function calculateSleepHours(entry: SleepEntry): number {
@@ -56,22 +64,30 @@ export function SleepProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient();
   const [currentEntry, setCurrentEntry] = useState<Partial<SleepEntry>>({});
 
-  // Ensure user exists in DB
   useEffect(() => {
     if (userId) {
-      sql`INSERT INTO users (id) VALUES (${userId}) ON CONFLICT (id) DO NOTHING`.catch(err => console.error("Profile sync error:", err));
+      console.log("AuthProvider userId:", userId);
+      sql`INSERT INTO users (id) VALUES (${userId}) ON CONFLICT (id) DO NOTHING`
+        .catch(err => console.error("Profile sync error:", err));
     }
   }, [userId]);
 
-  const { data: entries = [], isLoading } = useQuery({
+  const { data: entries = [], isLoading, error: fetchError } = useQuery({
     queryKey: ["sleep_entries", userId],
     queryFn: async () => {
       if (!userId) return [];
+      console.log("Fetching entries for userId:", userId);
       const result = await sql`
-        SELECT * FROM sleep_entries 
+        SELECT 
+          bedtime_hour, bedtime_minute, bedtime_am_pm,
+          wake_hour, wake_minute, wake_am_pm,
+          quality, date::TEXT as date_str
+        FROM sleep_entries 
         WHERE user_id = ${userId} 
         ORDER BY date DESC
       `;
+      console.log("Raw SQL result count:", result.length);
+
       return result.map(row => ({
         bedtimeHour: row.bedtime_hour,
         bedtimeMinute: row.bedtime_minute,
@@ -80,14 +96,19 @@ export function SleepProvider({ children }: { children: ReactNode }) {
         wakeMinute: row.wake_minute,
         wakeAmPm: row.wake_am_pm as "AM" | "PM",
         quality: row.quality,
-        date: new Date(row.date).toISOString().split('T')[0],
+        date: row.date_str, // Use date::TEXT from Postgres to avoid JS Date object issues
       }));
     },
     enabled: !!userId,
   });
 
+  if (fetchError) {
+    console.error("useQuery fetch error:", fetchError);
+  }
+
   const saveMutation = useMutation({
     mutationFn: async (entry: SleepEntry) => {
+      console.log("Saving entry:", entry);
       return sql`
         INSERT INTO sleep_entries (
           user_id, bedtime_hour, bedtime_minute, bedtime_am_pm, 
@@ -106,8 +127,12 @@ export function SleepProvider({ children }: { children: ReactNode }) {
       `;
     },
     onSuccess: () => {
+      console.log("Save successful, invalidating queries...");
       queryClient.invalidateQueries({ queryKey: ["sleep_entries", userId] });
     },
+    onError: (err) => {
+      console.error("Save error:", err);
+    }
   });
 
   const saveEntry = () => {
@@ -131,7 +156,12 @@ export function SleepProvider({ children }: { children: ReactNode }) {
     saveMutation.mutate(entry);
   };
 
-  const getTodayEntry = () => entries.find((e) => e.date === getToday());
+  const getTodayEntry = () => {
+    const today = getToday();
+    const found = entries.find((e) => e.date === today);
+    console.log(`Searching for today (${today}):`, found ? "Found" : "Not Found");
+    return found;
+  };
 
   const getWeekEntries = () => {
     return Array.from({ length: 7 }, (_, i) => {
