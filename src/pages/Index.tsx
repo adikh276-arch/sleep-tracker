@@ -37,19 +37,6 @@ function SleepApp() {
         <TodaySummaryScreen onEdit={() => navigateTo("log")} onWeek={() => navigateTo("week")} />
       )}
       {visible === "week" && <WeekViewScreen onBack={() => navigateTo("summary")} onAdd={() => navigateTo("log")} />}
-
-      {/* Bottom nav dots */}
-      <div className="fixed bottom-6 left-0 right-0 flex justify-center gap-2">
-        {(["log", "quality", "summary", "week"] as Screen[]).map((s) => (
-          <button
-            key={s}
-            onClick={() => navigateTo(s)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${visible === s ? "bg-primary w-6" : "bg-border"
-              }`}
-            aria-label={t(`common.nav.${s}`)}
-          />
-        ))}
-      </div>
     </div>
   );
 }

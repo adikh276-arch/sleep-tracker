@@ -7,9 +7,18 @@ interface TodaySummaryScreenProps {
 }
 
 export default function TodaySummaryScreen({ onEdit, onWeek }: TodaySummaryScreenProps) {
-  const { getTodayEntry } = useSleep();
+  const { getTodayEntry, isLoading } = useSleep();
   const { t } = useTranslation();
   const entry = getTodayEntry();
+
+  if (isLoading) {
+    return (
+      <div className="px-5 pt-10 text-center font-heading">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        {t("screens.summary.title")}...
+      </div>
+    );
+  }
 
   const qualityLabels = [
     t("screens.summary.quality_labels.deep"),

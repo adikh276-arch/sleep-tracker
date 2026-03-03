@@ -7,9 +7,18 @@ interface WeekViewScreenProps {
 }
 
 export default function WeekViewScreen({ onBack, onAdd }: WeekViewScreenProps) {
-  const { getWeekEntries } = useSleep();
+  const { getWeekEntries, isLoading } = useSleep();
   const { t } = useTranslation();
   const week = getWeekEntries();
+
+  if (isLoading) {
+    return (
+      <div className="px-5 pt-10 text-center font-heading">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        {t("screens.week.title")}...
+      </div>
+    );
+  }
 
   const hours = week.map((e) => (e ? calculateSleepHours(e) : 0));
   const maxH = Math.max(...hours, 10);

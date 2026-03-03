@@ -6,22 +6,26 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LanguageSelector from "./components/LanguageSelector";
+import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageSelector />
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename="/sleep_tracker">
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <LanguageSelector />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename="/sleep_tracker">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/token" element={<div className="flex items-center justify-center min-h-screen">Invalid or Missing Token</div>} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
