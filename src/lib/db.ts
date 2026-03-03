@@ -1,34 +1,34 @@
 import { neon } from '@neondatabase/serverless';
 
-const sql = neon(import.meta.env.VITE_DATABASE_URL || 'postgresql://neondatabase_owner:npg_P6JQV3TOiAwY@ep-lingering-fog-a1hmafze.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require');
+const sql = neon(import.meta.env.VITE_DATABASE_URL || 'postgresql://neondb_owner:npg_P6JQV3TOiAwY@ep-lingering-fog-a1hmafze.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require');
 
 export default sql;
 
 export interface DBUser {
-    id: string;
+  id: string;
 }
 
 export interface DBSleepEntry {
-    id?: number;
-    user_id: string;
-    bedtime_hour: number;
-    bedtime_minute: number;
-    bedtime_am_pm: string;
-    wake_hour: number;
-    wake_minute: number;
-    wake_am_pm: string;
-    quality: number;
-    date: string;
+  id?: number;
+  user_id: string;
+  bedtime_hour: number;
+  bedtime_minute: number;
+  bedtime_am_pm: string;
+  wake_hour: number;
+  wake_minute: number;
+  wake_am_pm: string;
+  quality: number;
+  date: string;
 }
 
 export async function initDb() {
-    try {
-        await sql`
+  try {
+    await sql`
       CREATE TABLE IF NOT EXISTS users (
         id BIGINT PRIMARY KEY
       );
     `;
-        await sql`
+    await sql`
       CREATE TABLE IF NOT EXISTS sleep_entries (
         id SERIAL PRIMARY KEY,
         user_id BIGINT REFERENCES users(id),
@@ -43,8 +43,8 @@ export async function initDb() {
         UNIQUE(user_id, date)
       );
     `;
-        console.log('Database initialized successfully');
-    } catch (error) {
-        console.error('Failed to initialize database:', error);
-    }
+    console.log('Database initialized successfully');
+  } catch (error) {
+    console.error('Failed to initialize database:', error);
+  }
 }
