@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "어젯밤 기록",
+      "subtitle": "잠",
+      "bedtime": "취침 시간",
+      "wakeup": "기상 시간",
+      "next": "다음"
+    },
+    "quality": {
+      "title": "잘 잤어요?",
+      "qualities": {
+        "deep": "깊고 평화롭게 잠들었다",
+        "okay": "잠은 괜찮았고, 몇 번 깨긴 했지만요.",
+        "light": "얕은 잠, 완전히 쉬지 못함",
+        "restless": "잠 못 이루는 밤",
+        "hardly": "거의 잠을 못 잤어요"
+      },
+      "save": "항목 저장"
+    },
+    "summary": {
+      "title": "오늘의 수면",
+      "no_entry": "아직 등록된 항목이 없습니다.",
+      "log_button": "수면 기록",
+      "total_sleep": "총 수면 시간",
+      "quality": "품질",
+      "bedtime": "취침 시간",
+      "wakeup": "깨우다",
+      "edit": "항목 수정",
+      "this_week": "이번 주",
+      "add_another": "+ 다른 항목 추가",
+      "quality_labels": {
+        "deep": "깊고 평화롭게",
+        "okay": "좋아요",
+        "light": "얕은 잠",
+        "restless": "불안한",
+        "hardly": "거의 잠을 못 잤어요"
+      }
+    },
+    "week": {
+      "title": "이번 주",
+      "average": "주간 평균",
+      "add_another": "+ 다른 항목 추가",
+      "back": "홈으로 돌아가기",
+      "days": {
+        "Mon": "월요일",
+        "Tue": "화요일",
+        "Wed": "수요일",
+        "Thu": "목",
+        "Fri": "금요일",
+        "Sat": "앉았다",
+        "Sun": "해"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "앗! 페이지를 찾을 수 없습니다.",
+      "back": "홈으로 돌아가기"
+    }
+  },
+  "common": {
+    "increase_hour": "시간 증가",
+    "decrease_hour": "시간을 줄이세요",
+    "increase_minute": "분을 늘리세요",
+    "decrease_minute": "분을 줄이세요",
+    "am": "오전",
+    "pm": "오후",
+    "hours_format": "{{hours}}h"
+  }
+}

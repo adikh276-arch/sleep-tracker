@@ -1,0 +1,76 @@
+{
+    "screens": {
+        "log": {
+            "title": "Log Last Night's",
+            "subtitle": "Sleep",
+            "bedtime": "Bedtime",
+            "wakeup": "Wake-up Time",
+            "next": "Next"
+        },
+        "quality": {
+            "title": "How Did You Sleep?",
+            "qualities": {
+                "deep": "Slept deeply and peacefully",
+                "okay": "Slept okay, woke up a few times",
+                "light": "Light sleep, not fully rested",
+                "restless": "Restless night",
+                "hardly": "Hardly slept at all"
+            },
+            "save": "Save Entry"
+        },
+        "summary": {
+            "title": "Today's Sleep",
+            "no_entry": "No entry logged yet.",
+            "log_button": "Log Sleep",
+            "total_sleep": "Total Sleep",
+            "quality": "Quality",
+            "bedtime": "Bedtime",
+            "wakeup": "Wake-up",
+            "edit": "Edit Entry",
+            "this_week": "This Week",
+            "add_another": "+ Add Another Entry",
+            "quality_labels": {
+                "deep": "Deeply & Peacefully",
+                "okay": "Okay",
+                "light": "Light Sleep",
+                "restless": "Restless",
+                "hardly": "Hardly Slept"
+            }
+        },
+        "week": {
+            "title": "This Week",
+            "average": "Weekly Average",
+            "add_another": "+ Add Another Entry",
+            "back": "Back to Home",
+            "days": {
+                "Mon": "Mon",
+                "Tue": "Tue",
+                "Wed": "Wed",
+                "Thu": "Thu",
+                "Fri": "Fri",
+                "Sat": "Sat",
+                "Sun": "Sun"
+            }
+        },
+        "notFound": {
+            "title": "404",
+            "message": "Oops! Page not found",
+            "back": "Return to Home"
+        }
+    },
+    "common": {
+        "nav": {
+            "log": "Go to log screen",
+            "quality": "Go to quality screen",
+            "summary": "Go to summary screen",
+            "week": "Go to week screen"
+        },
+        "increase_hour": "Increase hour",
+        "decrease_hour": "Decrease hour",
+        "increase_minute": "Increase minute",
+        "decrease_minute": "Decrease minute",
+        "am": "AM",
+        "pm": "PM",
+        "hours_format": "{{hours}}h"
+    }
+}

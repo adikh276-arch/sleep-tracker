@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface TimePickerProps {
   label: string;
@@ -11,6 +12,7 @@ interface TimePickerProps {
 }
 
 export default function TimePicker({ label, hour, minute, amPm, onChangeHour, onChangeMinute, onChangeAmPm }: TimePickerProps) {
+  const { t } = useTranslation();
   return (
     <div className="bg-card rounded-lg shadow-soft p-5 mb-4">
       <p className="font-section text-sm text-muted-foreground mb-3">{label}</p>
@@ -20,7 +22,7 @@ export default function TimePicker({ label, hour, minute, amPm, onChangeHour, on
           <button
             className="text-muted-foreground text-lg px-2 py-1 active:scale-90 transition-transform"
             onClick={() => onChangeHour(hour >= 12 ? 1 : hour + 1)}
-            aria-label="Increase hour"
+            aria-label={t("common.increase_hour")}
           >
             ▲
           </button>
@@ -28,7 +30,7 @@ export default function TimePicker({ label, hour, minute, amPm, onChangeHour, on
           <button
             className="text-muted-foreground text-lg px-2 py-1 active:scale-90 transition-transform"
             onClick={() => onChangeHour(hour <= 1 ? 12 : hour - 1)}
-            aria-label="Decrease hour"
+            aria-label={t("common.decrease_hour")}
           >
             ▼
           </button>
@@ -41,7 +43,7 @@ export default function TimePicker({ label, hour, minute, amPm, onChangeHour, on
           <button
             className="text-muted-foreground text-lg px-2 py-1 active:scale-90 transition-transform"
             onClick={() => onChangeMinute(minute >= 55 ? 0 : minute + 5)}
-            aria-label="Increase minute"
+            aria-label={t("common.increase_minute")}
           >
             ▲
           </button>
@@ -49,7 +51,7 @@ export default function TimePicker({ label, hour, minute, amPm, onChangeHour, on
           <button
             className="text-muted-foreground text-lg px-2 py-1 active:scale-90 transition-transform"
             onClick={() => onChangeMinute(minute <= 0 ? 55 : minute - 5)}
-            aria-label="Decrease minute"
+            aria-label={t("common.decrease_minute")}
           >
             ▼
           </button>
@@ -58,24 +60,22 @@ export default function TimePicker({ label, hour, minute, amPm, onChangeHour, on
         {/* AM/PM */}
         <div className="flex flex-col gap-1 ml-2">
           <button
-            className={`px-3 py-1.5 rounded-pill text-sm font-medium transition-all duration-200 ${
-              amPm === "AM"
-                ? "bg-primary text-primary-foreground shadow-soft"
-                : "bg-accent text-accent-foreground"
-            }`}
+            className={`px-3 py-1.5 rounded-pill text-sm font-medium transition-all duration-200 ${amPm === "AM"
+              ? "bg-primary text-primary-foreground shadow-soft"
+              : "bg-accent text-accent-foreground"
+              }`}
             onClick={() => onChangeAmPm("AM")}
           >
-            AM
+            {t("common.am")}
           </button>
           <button
-            className={`px-3 py-1.5 rounded-pill text-sm font-medium transition-all duration-200 ${
-              amPm === "PM"
-                ? "bg-primary text-primary-foreground shadow-soft"
-                : "bg-accent text-accent-foreground"
-            }`}
+            className={`px-3 py-1.5 rounded-pill text-sm font-medium transition-all duration-200 ${amPm === "PM"
+              ? "bg-primary text-primary-foreground shadow-soft"
+              : "bg-accent text-accent-foreground"
+              }`}
             onClick={() => onChangeAmPm("PM")}
           >
-            PM
+            {t("common.pm")}
           </button>
         </div>
       </div>

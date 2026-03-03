@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { SleepProvider } from "@/context/SleepContext";
 import LogTimeScreen from "@/screens/LogTimeScreen";
 import SleepQualityScreen from "@/screens/SleepQualityScreen";
@@ -8,6 +9,7 @@ import WeekViewScreen from "@/screens/WeekViewScreen";
 type Screen = "log" | "quality" | "summary" | "week";
 
 function SleepApp() {
+  const { t } = useTranslation();
   const [screen, setScreen] = useState<Screen>("summary");
   const [transitioning, setTransitioning] = useState(false);
   const [visible, setVisible] = useState<Screen>("summary");
@@ -25,9 +27,8 @@ function SleepApp() {
 
   return (
     <div
-      className={`min-h-screen bg-background transition-opacity duration-300 ${
-        transitioning ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
-      }`}
+      className={`min-h-screen bg-background transition-opacity duration-300 ${transitioning ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
+        }`}
       style={{ transition: "opacity 0.35s ease, transform 0.35s ease" }}
     >
       {visible === "log" && <LogTimeScreen onNext={() => navigateTo("quality")} />}
@@ -43,10 +44,9 @@ function SleepApp() {
           <button
             key={s}
             onClick={() => navigateTo(s)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              visible === s ? "bg-primary w-6" : "bg-border"
-            }`}
-            aria-label={`Go to ${s}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${visible === s ? "bg-primary w-6" : "bg-border"
+              }`}
+            aria-label={t(`common.nav.${s}`)}
           />
         ))}
       </div>

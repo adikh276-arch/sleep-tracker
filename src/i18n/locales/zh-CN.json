@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "记录昨晚的",
+      "subtitle": "睡觉",
+      "bedtime": "睡前",
+      "wakeup": "起床时间",
+      "next": "下一个"
+    },
+    "quality": {
+      "title": "你睡得好吗？",
+      "qualities": {
+        "deep": "睡得很沉很安稳。",
+        "okay": "睡得还行，醒了几次",
+        "light": "睡眠较浅，未完全休息。",
+        "restless": "辗转难眠",
+        "hardly": "几乎没睡。"
+      },
+      "save": "保存条目"
+    },
+    "summary": {
+      "title": "今日睡眠",
+      "no_entry": "尚未记录任何条目。",
+      "log_button": "记录睡眠",
+      "total_sleep": "总睡眠",
+      "quality": "质量",
+      "bedtime": "睡前",
+      "wakeup": "醒来",
+      "edit": "编辑条目",
+      "this_week": "本星期",
+      "add_another": "+ 添加另一条记录",
+      "quality_labels": {
+        "deep": "深沉而平静",
+        "okay": "好的",
+        "light": "浅睡眠",
+        "restless": "不安",
+        "hardly": "几乎没睡"
+      }
+    },
+    "week": {
+      "title": "本星期",
+      "average": "每周平均值",
+      "add_another": "+ 添加另一条记录",
+      "back": "返回首页",
+      "days": {
+        "Mon": "星期一",
+        "Tue": "星期二",
+        "Wed": "星期三",
+        "Thu": "星期四",
+        "Fri": "星期五",
+        "Sat": "星期六",
+        "Sun": "太阳"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "糟糕！页面未找到",
+      "back": "返回首页"
+    }
+  },
+  "common": {
+    "increase_hour": "增加工时",
+    "decrease_hour": "减少工时",
+    "increase_minute": "增加分钟",
+    "decrease_minute": "减少分钟",
+    "am": "是",
+    "pm": "下午",
+    "hours_format": "{{hours}}小时"
+  }
+}

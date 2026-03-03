@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Nhật ký đêm qua",
+      "subtitle": "Ngủ",
+      "bedtime": "Giờ đi ngủ",
+      "wakeup": "Giờ thức dậy",
+      "next": "Kế tiếp"
+    },
+    "quality": {
+      "title": "Bạn ngủ thế nào?",
+      "qualities": {
+        "deep": "Ngủ sâu giấc và ngon lành.",
+        "okay": "Ngủ khá ngon, nhưng thức giấc vài lần.",
+        "light": "Ngủ không sâu giấc, chưa được nghỉ ngơi đầy đủ.",
+        "restless": "Đêm không ngủ",
+        "hardly": "Hầu như không ngủ chút nào."
+      },
+      "save": "Lưu mục nhập"
+    },
+    "summary": {
+      "title": "Giấc ngủ hôm nay",
+      "no_entry": "Chưa có mục nào được ghi nhận.",
+      "log_button": "Ghi nhật ký giấc ngủ",
+      "total_sleep": "Tổng thời gian ngủ",
+      "quality": "Chất lượng",
+      "bedtime": "Giờ đi ngủ",
+      "wakeup": "Thức dậy",
+      "edit": "Chỉnh sửa mục nhập",
+      "this_week": "Tuần này",
+      "add_another": "+ Thêm mục khác",
+      "quality_labels": {
+        "deep": "Sâu sắc và bình yên",
+        "okay": "Đồng ý",
+        "light": "Ngủ nhẹ",
+        "restless": "bồn chồn",
+        "hardly": "Hầu như không ngủ được"
+      }
+    },
+    "week": {
+      "title": "Tuần này",
+      "average": "Trung bình hàng tuần",
+      "add_another": "+ Thêm mục khác",
+      "back": "Trở về Trang chủ",
+      "days": {
+        "Mon": "Thứ Hai",
+        "Tue": "Thứ Ba",
+        "Wed": "Thứ Tư",
+        "Thu": "Thứ năm",
+        "Fri": "Thứ Sáu",
+        "Sat": "Đã ngồi",
+        "Sun": "Mặt trời"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Ôi! Không tìm thấy trang!",
+      "back": "Trở về Trang chủ"
+    }
+  },
+  "common": {
+    "increase_hour": "Tăng giờ",
+    "decrease_hour": "Giảm giờ",
+    "increase_minute": "Tăng phút",
+    "decrease_minute": "Giảm phút",
+    "am": "LÀ",
+    "pm": "Thủ tướng",
+    "hours_format": "{{hours}}h"
+  }
+}

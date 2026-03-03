@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Journal de la nuit dernière",
+      "subtitle": "Dormir",
+      "bedtime": "Heure du coucher",
+      "wakeup": "Heure de réveil",
+      "next": "Suivant"
+    },
+    "quality": {
+      "title": "Comment as-tu dormi ?",
+      "qualities": {
+        "deep": "J'ai dormi profondément et paisiblement.",
+        "okay": "J'ai bien dormi, je me suis réveillé plusieurs fois.",
+        "light": "Sommeil léger, pas complètement reposé",
+        "restless": "Nuit agitée",
+        "hardly": "Je n'ai pratiquement pas dormi du tout"
+      },
+      "save": "Enregistrer l'entrée"
+    },
+    "summary": {
+      "title": "Sommeil d'aujourd'hui",
+      "no_entry": "Aucune entrée enregistrée pour le moment.",
+      "log_button": "Journal du sommeil",
+      "total_sleep": "Sommeil total",
+      "quality": "Qualité",
+      "bedtime": "Heure du coucher",
+      "wakeup": "Réveillez-vous",
+      "edit": "Modifier l'entrée",
+      "this_week": "Cette semaine",
+      "add_another": "+ Ajouter une autre entrée",
+      "quality_labels": {
+        "deep": "Profondément et paisiblement",
+        "okay": "D'accord",
+        "light": "Sommeil léger",
+        "restless": "Agité",
+        "hardly": "J'ai à peine dormi"
+      }
+    },
+    "week": {
+      "title": "Cette semaine",
+      "average": "Moyenne hebdomadaire",
+      "add_another": "+ Ajouter une autre entrée",
+      "back": "Retour à l'accueil",
+      "days": {
+        "Mon": "Lun",
+        "Tue": "Mar",
+        "Wed": "Épouser",
+        "Thu": "Jeu",
+        "Fri": "Ven",
+        "Sat": "Assis",
+        "Sun": "Soleil"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Oups ! Page introuvable",
+      "back": "Retour à l'accueil"
+    }
+  },
+  "common": {
+    "increase_hour": "Augmenter les heures",
+    "decrease_hour": "Diminuer l'heure",
+    "increase_minute": "Augmenter les minutes",
+    "decrease_minute": "Diminuer minute",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{hours}}h"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "昨夜のログ",
+      "subtitle": "寝る",
+      "bedtime": "就寝時間",
+      "wakeup": "起床時間",
+      "next": "次"
+    },
+    "quality": {
+      "title": "よく眠れましたか？",
+      "qualities": {
+        "deep": "深く安らかに眠った",
+        "okay": "よく眠れたが、何度か起きた",
+        "light": "眠りが浅く、十分に休めていない",
+        "restless": "眠れない夜",
+        "hardly": "ほとんど眠れなかった"
+      },
+      "save": "エントリを保存"
+    },
+    "summary": {
+      "title": "今日の睡眠",
+      "no_entry": "まだエントリは記録されていません。",
+      "log_button": "ログスリープ",
+      "total_sleep": "総睡眠時間",
+      "quality": "品質",
+      "bedtime": "就寝時間",
+      "wakeup": "起きろ",
+      "edit": "エントリーを編集",
+      "this_week": "今週",
+      "add_another": "+ 別のエントリを追加",
+      "quality_labels": {
+        "deep": "深く、平和に",
+        "okay": "わかった",
+        "light": "浅い眠り",
+        "restless": "落ち着かない",
+        "hardly": "ほとんど眠れなかった"
+      }
+    },
+    "week": {
+      "title": "今週",
+      "average": "週平均",
+      "add_another": "+ 別のエントリを追加",
+      "back": "ホームに戻る",
+      "days": {
+        "Mon": "月曜日",
+        "Tue": "火曜",
+        "Wed": "水曜",
+        "Thu": "木曜",
+        "Fri": "金曜",
+        "Sat": "土",
+        "Sun": "太陽"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "おっと！ページが見つかりません",
+      "back": "ホームに戻る"
+    }
+  },
+  "common": {
+    "increase_hour": "時間を増やす",
+    "decrease_hour": "時間を減らす",
+    "increase_minute": "分を増やす",
+    "decrease_minute": "分を減らす",
+    "am": "午前",
+    "pm": "首相",
+    "hours_format": "{{hours}}時間"
+  }
+}

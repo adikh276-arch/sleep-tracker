@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Protokoll der letzten Nacht",
+      "subtitle": "Schlafen",
+      "bedtime": "Schlafenszeit",
+      "wakeup": "Aufwachzeit",
+      "next": "Nächste"
+    },
+    "quality": {
+      "title": "Wie hast du geschlafen?",
+      "qualities": {
+        "deep": "Ich habe tief und ruhig geschlafen.",
+        "okay": "Habe gut geschlafen, bin ein paar Mal aufgewacht.",
+        "light": "Leichter Schlaf, nicht vollständig ausgeruht",
+        "restless": "Unruhige Nacht",
+        "hardly": "Habe kaum geschlafen"
+      },
+      "save": "Eintrag speichern"
+    },
+    "summary": {
+      "title": "Heutiger Schlaf",
+      "no_entry": "Bisher kein Eintrag protokolliert.",
+      "log_button": "Schlaf protokollieren",
+      "total_sleep": "Totaler Schlaf",
+      "quality": "Qualität",
+      "bedtime": "Schlafenszeit",
+      "wakeup": "Aufwachen",
+      "edit": "Eintrag bearbeiten",
+      "this_week": "Diese Woche",
+      "add_another": "+ Weiteren Eintrag hinzufügen",
+      "quality_labels": {
+        "deep": "Tief und friedvoll",
+        "okay": "Okay",
+        "light": "Leichter Schlaf",
+        "restless": "Unruhig",
+        "hardly": "Kaum geschlafen"
+      }
+    },
+    "week": {
+      "title": "Diese Woche",
+      "average": "Wochendurchschnitt",
+      "add_another": "+ Weiteren Eintrag hinzufügen",
+      "back": "Zurück zur Startseite",
+      "days": {
+        "Mon": "Montag",
+        "Tue": "Di.",
+        "Wed": "Heiraten",
+        "Thu": "Donnerstag",
+        "Fri": "Freitag",
+        "Sat": "Sa",
+        "Sun": "Sonne"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Hoppla! Seite nicht gefunden",
+      "back": "Zurück zur Startseite"
+    }
+  },
+  "common": {
+    "increase_hour": "Stunde erhöhen",
+    "decrease_hour": "Stunde verringern",
+    "increase_minute": "Minute erhöhen",
+    "decrease_minute": "Minute verringern",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{hours}}h"
+  }
+}

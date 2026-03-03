@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Mag-log ng Kagabi",
+      "subtitle": "Tulog",
+      "bedtime": "Oras ng pagtulog",
+      "wakeup": "Oras ng Paggising",
+      "next": "Susunod"
+    },
+    "quality": {
+      "title": "Paano ka nakatulog?",
+      "qualities": {
+        "deep": "Nakatulog nang mahimbing at mapayapa",
+        "okay": "Nakatulog nang maayos, nagising nang ilang beses",
+        "light": "Mahinang tulog, hindi lubos na nakapagpahinga",
+        "restless": "Gabing walang pahinga",
+        "hardly": "Halos hindi nakatulog"
+      },
+      "save": "I-save ang Entry"
+    },
+    "summary": {
+      "title": "Tulog Ngayon",
+      "no_entry": "Wala pang naka-log na entry.",
+      "log_button": "Pagtulog sa Log",
+      "total_sleep": "Kabuuang Tulog",
+      "quality": "Kalidad",
+      "bedtime": "Oras ng pagtulog",
+      "wakeup": "Paggising",
+      "edit": "I-edit ang Entry",
+      "this_week": "Ngayong Linggo",
+      "add_another": "+ Magdagdag ng Isa Pang Entry",
+      "quality_labels": {
+        "deep": "Nang Malalim at Mapayapa",
+        "okay": "Sige",
+        "light": "Magaan na Tulog",
+        "restless": "Hindi mapakali",
+        "hardly": "Halos Hindi Nakatulog"
+      }
+    },
+    "week": {
+      "title": "Ngayong Linggo",
+      "average": "Lingguhang Karaniwan",
+      "add_another": "+ Magdagdag ng Isa Pang Entry",
+      "back": "Balik sa Bahay",
+      "days": {
+        "Mon": "Lunes",
+        "Tue": "Martes",
+        "Wed": "Miyerkules",
+        "Thu": "Huwebes",
+        "Fri": "Biyernes",
+        "Sat": "Sabado",
+        "Sun": "Araw"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Naku! Hindi natagpuan ang pahina",
+      "back": "Bumalik sa Bahay"
+    }
+  },
+  "common": {
+    "increase_hour": "Dagdagan ang oras",
+    "decrease_hour": "Bawasan ang oras",
+    "increase_minute": "Dagdagan ang minuto",
+    "decrease_minute": "Bawasan ang minuto",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{oras}}h"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Dün Geceki Kayıtlar",
+      "subtitle": "Uyumak",
+      "bedtime": "Yatış vakti",
+      "wakeup": "Uyanma Saati",
+      "next": "Sonraki"
+    },
+    "quality": {
+      "title": "Nasıl uyudunuz?",
+      "qualities": {
+        "deep": "Derin ve huzurlu bir uyku uyudum.",
+        "okay": "İyi uyudum, birkaç kez uyandım.",
+        "light": "Hafif uyku, tam olarak dinlenmemiş.",
+        "restless": "Huzursuz gece",
+        "hardly": "Neredeyse hiç uyuyamadım."
+      },
+      "save": "Girişi Kaydet"
+    },
+    "summary": {
+      "title": "Bugünkü Uyku",
+      "no_entry": "Henüz hiçbir giriş kaydedilmedi.",
+      "log_button": "Uyku Günlüğü",
+      "total_sleep": "Toplam Uyku",
+      "quality": "Kalite",
+      "bedtime": "Yatış vakti",
+      "wakeup": "Uyanmak",
+      "edit": "Girişi Düzenle",
+      "this_week": "Bu hafta",
+      "add_another": "+ Başka Bir Giriş Ekle",
+      "quality_labels": {
+        "deep": "Derin ve Huzurlu Bir Şekilde",
+        "okay": "Tamam",
+        "light": "Hafif Uyku",
+        "restless": "Huzursuz",
+        "hardly": "Neredeyse hiç uyumadım"
+      }
+    },
+    "week": {
+      "title": "Bu hafta",
+      "average": "Haftalık Ortalama",
+      "add_another": "+ Başka Bir Giriş Ekle",
+      "back": "Ana sayfaya geri dön",
+      "days": {
+        "Mon": "Pazartesi",
+        "Tue": "Salı",
+        "Wed": "Çarşamba",
+        "Thu": "Perşembe",
+        "Fri": "Cuma",
+        "Sat": "Doygunluk",
+        "Sun": "Güneş"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Ups! Sayfa bulunamadı.",
+      "back": "Ana sayfaya dön"
+    }
+  },
+  "common": {
+    "increase_hour": "Saati artırın",
+    "decrease_hour": "Saati azaltın",
+    "increase_minute": "Dakikayı artırın",
+    "decrease_minute": "Dakikayı azaltın",
+    "am": "Sabah",
+    "pm": "ÖĞLEDEN SONRA",
+    "hours_format": "{{hours}}h"
+  }
+}

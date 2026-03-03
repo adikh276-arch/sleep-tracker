@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Catatlah kejadian semalam.",
+      "subtitle": "Tidur",
+      "bedtime": "Waktu tidur",
+      "wakeup": "Waktu Bangun Tidur",
+      "next": "Berikutnya"
+    },
+    "quality": {
+      "title": "Bagaimana tidurmu?",
+      "qualities": {
+        "deep": "Tidur nyenyak dan damai.",
+        "okay": "Tidur nyenyak, terbangun beberapa kali.",
+        "light": "Tidur ringan, tidak sepenuhnya istirahat",
+        "restless": "Malam yang gelisah",
+        "hardly": "Hampir tidak tidur sama sekali"
+      },
+      "save": "Simpan Entri"
+    },
+    "summary": {
+      "title": "Tidur Hari Ini",
+      "no_entry": "Belum ada entri yang tercatat.",
+      "log_button": "Catatan Tidur",
+      "total_sleep": "Total Waktu Tidur",
+      "quality": "Kualitas",
+      "bedtime": "Waktu tidur",
+      "wakeup": "Bangun",
+      "edit": "Edit Entri",
+      "this_week": "Minggu Ini",
+      "add_another": "+ Tambahkan Entri Lainnya",
+      "quality_labels": {
+        "deep": "Secara Mendalam & Damai",
+        "okay": "Oke",
+        "light": "Tidur Ringan",
+        "restless": "Gelisah",
+        "hardly": "Hampir Tidak Tidur"
+      }
+    },
+    "week": {
+      "title": "Minggu Ini",
+      "average": "Rata-rata Mingguan",
+      "add_another": "+ Tambahkan Entri Lainnya",
+      "back": "Kembali ke Beranda",
+      "days": {
+        "Mon": "Senin",
+        "Tue": "Selasa",
+        "Wed": "Menikahi",
+        "Thu": "Kamis",
+        "Fri": "Jumat",
+        "Sat": "Duduk",
+        "Sun": "Matahari"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Ups! Halaman tidak ditemukan",
+      "back": "Kembali ke Halaman Utama"
+    }
+  },
+  "common": {
+    "increase_hour": "Menambah jam kerja",
+    "decrease_hour": "Kurangi jam",
+    "increase_minute": "Tingkatkan menit",
+    "decrease_minute": "Kurangi menit",
+    "am": "PAGI",
+    "pm": "PM",
+    "hours_format": "jam"
+  }
+}

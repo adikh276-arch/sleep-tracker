@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Zaloguj się wczoraj wieczorem",
+      "subtitle": "Spać",
+      "bedtime": "Pora snu",
+      "wakeup": "Czas pobudki",
+      "next": "Następny"
+    },
+    "quality": {
+      "title": "Jak Ci się spało?",
+      "qualities": {
+        "deep": "Spałem głęboko i spokojnie",
+        "okay": "Spałem dobrze, budziłem się kilka razy",
+        "light": "Lekki sen, niepełny wypoczynek",
+        "restless": "Niespokojna noc",
+        "hardly": "Prawie w ogóle nie spałem"
+      },
+      "save": "Zapisz wpis"
+    },
+    "summary": {
+      "title": "Dzisiejszy sen",
+      "no_entry": "Nie zarejestrowano jeszcze żadnego wpisu.",
+      "log_button": "Rejestr snu",
+      "total_sleep": "Całkowity sen",
+      "quality": "Jakość",
+      "bedtime": "Pora snu",
+      "wakeup": "Budzić się",
+      "edit": "Edytuj wpis",
+      "this_week": "W tym tygodniu",
+      "add_another": "+ Dodaj kolejny wpis",
+      "quality_labels": {
+        "deep": "Głęboko i spokojnie",
+        "okay": "Dobra",
+        "light": "Lekki sen",
+        "restless": "Niespokojny",
+        "hardly": "Prawie nie spałem"
+      }
+    },
+    "week": {
+      "title": "W tym tygodniu",
+      "average": "Średnia tygodniowa",
+      "add_another": "+ Dodaj kolejny wpis",
+      "back": "Powrót do strony głównej",
+      "days": {
+        "Mon": "Poniedziałek",
+        "Tue": "wtorek",
+        "Wed": "Poślubić",
+        "Thu": "Czw",
+        "Fri": "Pt",
+        "Sat": "Sobota",
+        "Sun": "Słoneczny"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Ups! Strona nie została znaleziona",
+      "back": "Powrót do strony głównej"
+    }
+  },
+  "common": {
+    "increase_hour": "Zwiększ godzinę",
+    "decrease_hour": "Zmniejsz godzinę",
+    "increase_minute": "Zwiększ minutę",
+    "decrease_minute": "Zmniejsz minutę",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{godzin}}h"
+  }
+}

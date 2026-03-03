@@ -1,6 +1,5 @@
 import { useSleep, calculateSleepHours } from "@/context/SleepContext";
-
-const qualityLabels = ["Deeply & Peacefully", "Okay", "Light Sleep", "Restless", "Hardly Slept"];
+import { useTranslation } from "react-i18next";
 
 interface TodaySummaryScreenProps {
   onEdit: () => void;
@@ -9,18 +8,27 @@ interface TodaySummaryScreenProps {
 
 export default function TodaySummaryScreen({ onEdit, onWeek }: TodaySummaryScreenProps) {
   const { getTodayEntry } = useSleep();
+  const { t } = useTranslation();
   const entry = getTodayEntry();
+
+  const qualityLabels = [
+    t("screens.summary.quality_labels.deep"),
+    t("screens.summary.quality_labels.okay"),
+    t("screens.summary.quality_labels.light"),
+    t("screens.summary.quality_labels.restless"),
+    t("screens.summary.quality_labels.hardly"),
+  ];
 
   if (!entry) {
     return (
       <div className="page-transition-enter px-5 pt-10 pb-8 max-w-md mx-auto text-center">
-        <h1 className="font-heading text-2xl mb-4">Today's Sleep</h1>
-        <p className="text-muted-foreground mb-6">No entry logged yet.</p>
+        <h1 className="font-heading text-2xl mb-4">{t("screens.summary.title")}</h1>
+        <p className="text-muted-foreground mb-6">{t("screens.summary.no_entry")}</p>
         <button
           onClick={onEdit}
           className="py-3 px-8 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
         >
-          Log Sleep
+          {t("screens.summary.log_button")}
         </button>
       </div>
     );
@@ -32,26 +40,26 @@ export default function TodaySummaryScreen({ onEdit, onWeek }: TodaySummaryScree
 
   return (
     <div className="page-transition-enter px-5 pt-10 pb-8 max-w-md mx-auto">
-      <h1 className="font-heading text-2xl mb-6">Today's Sleep</h1>
+      <h1 className="font-heading text-2xl mb-6">{t("screens.summary.title")}</h1>
 
       <div className="bg-card rounded-lg shadow-card p-6 mb-6">
-        <div className="grid grid-cols-2 gap-y-5">
-          <div>
-            <p className="text-sm text-muted-foreground font-section">Total Sleep</p>
-            <p className="text-2xl font-heading">{hours}h</p>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground font-section leading-tight">{t("screens.summary.total_sleep")}</p>
+            <p className="text-xl font-heading">{t("common.hours_format", { hours })}</p>
           </div>
-          <div>
-            <p className="text-sm text-muted-foreground font-section">Quality</p>
-            <p className="text-base font-heading">{qualityLabels[entry.quality]}</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground font-section leading-tight">{t("screens.summary.quality")}</p>
+            <p className="text-base font-heading leading-tight">{qualityLabels[entry.quality]}</p>
           </div>
-          <div>
-            <p className="text-sm text-muted-foreground font-section">Bedtime</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground font-section leading-tight">{t("screens.summary.bedtime")}</p>
             <p className="text-base font-heading">
               {formatTime(entry.bedtimeHour, entry.bedtimeMinute, entry.bedtimeAmPm)}
             </p>
           </div>
-          <div>
-            <p className="text-sm text-muted-foreground font-section">Wake-up</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground font-section leading-tight">{t("screens.summary.wakeup")}</p>
             <p className="text-base font-heading">
               {formatTime(entry.wakeHour, entry.wakeMinute, entry.wakeAmPm)}
             </p>
@@ -65,20 +73,20 @@ export default function TodaySummaryScreen({ onEdit, onWeek }: TodaySummaryScree
             onClick={onEdit}
             className="flex-1 py-3 rounded-pill border-2 border-primary text-accent-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
           >
-            Edit Entry
+            {t("screens.summary.edit")}
           </button>
           <button
             onClick={onWeek}
             className="flex-1 py-3 rounded-pill bg-primary text-primary-foreground font-medium text-base shadow-soft active:scale-[0.97] transition-transform duration-200"
           >
-            This Week
+            {t("screens.summary.this_week")}
           </button>
         </div>
         <button
           onClick={onEdit}
           className="w-full py-3 rounded-pill border-2 border-border text-foreground font-medium text-base active:scale-[0.97] transition-transform duration-200"
         >
-          + Add Another Entry
+          {t("screens.summary.add_another")}
         </button>
       </div>
     </div>

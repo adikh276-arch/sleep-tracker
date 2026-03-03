@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Registra la notte scorsa",
+      "subtitle": "Sonno",
+      "bedtime": "Ora di andare a letto",
+      "wakeup": "Ora di sveglia",
+      "next": "Prossimo"
+    },
+    "quality": {
+      "title": "Come hai dormito?",
+      "qualities": {
+        "deep": "Ho dormito profondamente e pacificamente",
+        "okay": "Ho dormito bene, mi sono svegliato un paio di volte",
+        "light": "Sonno leggero, non completamente riposato",
+        "restless": "Notte agitata",
+        "hardly": "Ho dormito pochissimo"
+      },
+      "save": "Salva voce"
+    },
+    "summary": {
+      "title": "Il sonno di oggi",
+      "no_entry": "Nessuna voce registrata ancora.",
+      "log_button": "Registra il sonno",
+      "total_sleep": "Sonno totale",
+      "quality": "Qualità",
+      "bedtime": "Ora di andare a letto",
+      "wakeup": "Svegliati",
+      "edit": "Modifica voce",
+      "this_week": "Questa settimana",
+      "add_another": "+ Aggiungi un'altra voce",
+      "quality_labels": {
+        "deep": "Profondamente e pacificamente",
+        "okay": "Va bene",
+        "light": "Sonno leggero",
+        "restless": "Irrequieto",
+        "hardly": "Ho dormito pochissimo"
+      }
+    },
+    "week": {
+      "title": "Questa settimana",
+      "average": "Media settimanale",
+      "add_another": "+ Aggiungi un'altra voce",
+      "back": "Torna alla Home",
+      "days": {
+        "Mon": "lun",
+        "Tue": "Martedì",
+        "Wed": "Mercoledì",
+        "Thu": "Giovedì",
+        "Fri": "Ven",
+        "Sat": "Sab",
+        "Sun": "Sole"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Oops! Pagina non trovata",
+      "back": "Torna alla Home"
+    }
+  },
+  "common": {
+    "increase_hour": "Aumenta l'ora",
+    "decrease_hour": "Diminuire l'ora",
+    "increase_minute": "Aumenta minuto",
+    "decrease_minute": "Diminuisci minuto",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{ore}}h"
+  }
+}

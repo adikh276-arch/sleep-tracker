@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Registrar anoche",
+      "subtitle": "Dormir",
+      "bedtime": "Hora de acostarse",
+      "wakeup": "Hora de despertarse",
+      "next": "Próximo"
+    },
+    "quality": {
+      "title": "¿Cómo dormiste?",
+      "qualities": {
+        "deep": "Dormí profundamente y en paz.",
+        "okay": "Dormí bien, me desperté un par de veces.",
+        "light": "Sueño ligero, no descansado del todo",
+        "restless": "Noche sin descanso",
+        "hardly": "Apenas dormí en absoluto"
+      },
+      "save": "Guardar entrada"
+    },
+    "summary": {
+      "title": "El sueño de hoy",
+      "no_entry": "Aún no se ha registrado ninguna entrada.",
+      "log_button": "Registro de sueño",
+      "total_sleep": "Sueño total",
+      "quality": "Calidad",
+      "bedtime": "Hora de acostarse",
+      "wakeup": "Despertar",
+      "edit": "Editar entrada",
+      "this_week": "Esta semana",
+      "add_another": "+ Agregar otra entrada",
+      "quality_labels": {
+        "deep": "Profundamente y en paz",
+        "okay": "Bueno",
+        "light": "Sueño ligero",
+        "restless": "Inquieto",
+        "hardly": "Apenas dormí"
+      }
+    },
+    "week": {
+      "title": "Esta semana",
+      "average": "Promedio semanal",
+      "add_another": "+ Agregar otra entrada",
+      "back": "Volver a Inicio",
+      "days": {
+        "Mon": "Lun",
+        "Tue": "Mar",
+        "Wed": "Casarse",
+        "Thu": "Jue",
+        "Fri": "Vie",
+        "Sat": "Se sentó",
+        "Sun": "Sol"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "¡Ups! Página no encontrada",
+      "back": "Regresar a Inicio"
+    }
+  },
+  "common": {
+    "increase_hour": "Aumentar la hora",
+    "decrease_hour": "Disminuir hora",
+    "increase_minute": "Aumentar minutos",
+    "decrease_minute": "Disminuir minuto",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{hours}}h"
+  }
+}

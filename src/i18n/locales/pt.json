@@ -1,0 +1,70 @@
+{
+  "screens": {
+    "log": {
+      "title": "Registro da noite passada",
+      "subtitle": "Dormir",
+      "bedtime": "Hora de dormir",
+      "wakeup": "Hora de acordar",
+      "next": "Próximo"
+    },
+    "quality": {
+      "title": "Como você dormiu?",
+      "qualities": {
+        "deep": "Dormi profundamente e em paz.",
+        "okay": "Dormi bem, acordei algumas vezes.",
+        "light": "Sono leve, sem descanso completo.",
+        "restless": "Noite inquieta",
+        "hardly": "Quase não dormi nada."
+      },
+      "save": "Salvar entrada"
+    },
+    "summary": {
+      "title": "Sono de hoje",
+      "no_entry": "Nenhuma entrada registrada ainda.",
+      "log_button": "Sono profundo",
+      "total_sleep": "Sono Total",
+      "quality": "Qualidade",
+      "bedtime": "Hora de dormir",
+      "wakeup": "Acordar",
+      "edit": "Editar entrada",
+      "this_week": "Essa semana",
+      "add_another": "+ Adicionar outra entrada",
+      "quality_labels": {
+        "deep": "Profundamente e em paz",
+        "okay": "OK",
+        "light": "Sono leve",
+        "restless": "Agitado",
+        "hardly": "Quase não dormi"
+      }
+    },
+    "week": {
+      "title": "Essa semana",
+      "average": "Média semanal",
+      "add_another": "+ Adicionar outra entrada",
+      "back": "Voltar para a página inicial",
+      "days": {
+        "Mon": "seg",
+        "Tue": "ter",
+        "Wed": "qua",
+        "Thu": "qui",
+        "Fri": "sex",
+        "Sat": "Sentado",
+        "Sun": "Sol"
+      }
+    },
+    "notFound": {
+      "title": "404",
+      "message": "Ops! Página não encontrada",
+      "back": "Voltar para a página inicial"
+    }
+  },
+  "common": {
+    "increase_hour": "Aumentar a hora",
+    "decrease_hour": "Diminuir a hora",
+    "increase_minute": "Aumentar minuto",
+    "decrease_minute": "Diminuir minuto",
+    "am": "AM",
+    "pm": "PM",
+    "hours_format": "{{hours}}h"
+  }
+}
